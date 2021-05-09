@@ -7,3 +7,9 @@ test("expects addContactButton to be in App component", () => {
   const addContactButton = queryByTestId("add-contact-button");
   expect(addContactButton).toBeInTheDocument();
 });
+
+test("expects Drawer component not to be in App component on render", () => {
+  const { queryByTestId } = render(<App />);
+  const addContactDrawer = queryByTestId("add-contact-drawer");
+  expect(addContactDrawer).not.toBeInTheDocument();
+});
