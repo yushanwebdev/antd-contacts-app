@@ -4,7 +4,13 @@ import { Drawer } from "antd";
 
 const AddDrawer = ({ show, handleOnClose }) => {
   return (
-    <Drawer visible={show} onClose={handleOnClose} maskClosable={false}>
+    <Drawer
+      title="Add Contact"
+      visible={show}
+      onClose={handleOnClose}
+      maskClosable={false}
+      data-testid="add-contact-drawer"
+    >
       <h1>Content Here</h1>
     </Drawer>
   );
