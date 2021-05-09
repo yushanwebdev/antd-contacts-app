@@ -1,9 +1,9 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import { render } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/Ant Design/i);
-  expect(linkElement).toBeInTheDocument();
+test("expects addContactButton to be in App component", () => {
+  const { queryByTestId } = render(<App />);
+  const addContactButton = queryByTestId("add-contact-button");
+  expect(addContactButton).toBeInTheDocument();
 });
