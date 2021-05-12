@@ -1,12 +1,26 @@
 import React, { useState } from "react";
 import { Button } from "antd";
-import { PlusCircleFilled } from "@ant-design/icons";
+import { CodeSandboxCircleFilled, PlusCircleFilled } from "@ant-design/icons";
 import AddDrawer from "./AddDrawer";
 
 import "./App.less";
 
 const App = () => {
   const [showDrawer, setShowDrawer] = useState(false);
+  const [values, setValues] = useState({});
+  const [errorInfo, setErrorInfo] = useState("");
+
+  const handleAddFormOnFinish = (values) => {
+    setValues(values);
+  };
+
+  const handleAddFormOnFinishFailed = (errorInfo) => {
+    setErrorInfo(errorInfo);
+  };
+
+  console.log("values: ", values);
+  console.log("errorInfo: ", errorInfo);
+
   return (
     <>
       <Button
@@ -17,7 +31,12 @@ const App = () => {
       >
         Add
       </Button>
-      <AddDrawer show={showDrawer} handleOnClose={() => setShowDrawer(false)} />
+      <AddDrawer
+        show={showDrawer}
+        handleOnClose={() => setShowDrawer(false)}
+        handleOnFinish={handleAddFormOnFinish}
+        handleOnFinishFailed={handleAddFormOnFinishFailed}
+      />
     </>
   );
 };
