@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Button, Drawer, Form, Input } from "antd";
 
@@ -13,6 +13,13 @@ const AddDrawer = ({
     lastName: "",
     phoneNumber: null,
   };
+  const [form] = Form.useForm();
+  const [, forceUpdate] = useState({}); // To disable submit button at the beginning.
+
+  useEffect(() => {
+    forceUpdate({});
+  }, []);
+
   return (
     <Drawer
       title="Add Contact"
@@ -24,6 +31,7 @@ const AddDrawer = ({
     >
       <Form
         name="basic"
+        form={form}
         initialValues={initialValues}
         onFinish={handleOnFinish}
         onFinishFailed={handleOnFinishFailed}
@@ -67,10 +75,20 @@ const AddDrawer = ({
           <Input type="tel" />
         </Form.Item>
 
-        <Form.Item>
-          <Button type="primary" htmlType="submit">
-            Submit
-          </Button>
+        <Form.Item shouldUpdate>
+          {() => (
+            <Button
+              type="primary"
+              htmlType="submit"
+              disabled={
+                !form.isFieldsTouched(true) ||
+                !!form.getFieldsError().filter(({ errors }) => errors.length)
+                  .length
+              }
+            >
+              Log in
+            </Button>
+          )}
         </Form.Item>
       </Form>
     </Drawer>
