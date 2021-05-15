@@ -65,21 +65,32 @@ const App = () => {
         <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline"></Menu>
       </Sider>
       <Layout className="site-layout">
-        <Header className="site-layout-background" style={{ padding: 0 }} />
+        <Header style={{ padding: 0, backgroundColor: "#fff" }} />
         <Content style={{ margin: "0 16px" }}>
           <div
             className="site-layout-background"
             style={{ padding: 24, minHeight: 360 }}
           >
             <>
-              <Button
-                type="primary"
-                icon={<PlusCircleFilled />}
-                data-testid="add-contact-button"
-                onClick={() => setShowDrawer(true)}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  marginBottom: 20,
+                }}
               >
-                Add
-              </Button>
+                <div></div>
+                <div>
+                  <Button
+                    type="primary"
+                    icon={<PlusCircleFilled />}
+                    data-testid="add-contact-button"
+                    onClick={() => setShowDrawer(true)}
+                  >
+                    Add
+                  </Button>
+                </div>
+              </div>
               <Layout.Content>
                 <Table dataSource={values} columns={columns} />
               </Layout.Content>
