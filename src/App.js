@@ -69,6 +69,7 @@ const App = ({ contacts, addContact }) => {
                   marginBottom: 20,
                 }}
               >
+                <div></div>
                 <div>
                   <Button
                     type="primary"
@@ -81,7 +82,7 @@ const App = ({ contacts, addContact }) => {
                 </div>
               </div>
               <Layout.Content>
-                <Table dataSource={values} columns={columns} />
+                <Table dataSource={contacts} columns={columns} />
               </Layout.Content>
               <AddDrawer
                 show={showDrawer}
