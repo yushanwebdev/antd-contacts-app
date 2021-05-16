@@ -3,7 +3,7 @@ import contactReducer from "./contacts/reducer";
 import thunk from "redux-thunk";
 
 const store = createStore(
-  combineReducers(contactReducer),
+  combineReducers({ contacts: contactReducer }),
   applyMiddleware(thunk)
 );
 
