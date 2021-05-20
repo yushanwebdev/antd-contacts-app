@@ -33,12 +33,14 @@ const App = ({ contacts, addContact, deleteContact }) => {
     {
       title: "Action",
       key: "action",
-      render: (text, record) => (
-        <Button
-          icon={DeleteOutlined}
-          onClick={() => deleteContact(record.key)}
-        />
-      ),
+      render: (text, record) => {
+        return (
+          <Button
+            icon={<DeleteOutlined />}
+            onClick={() => deleteContact(record.key)}
+          />
+        );
+      },
     },
   ];
 
