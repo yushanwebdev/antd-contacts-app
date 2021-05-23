@@ -68,4 +68,4 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## License
 
-Contacts App is distributed under the MIT license.
+Contacts App is distributed under the [MIT license](./LICENSE).
