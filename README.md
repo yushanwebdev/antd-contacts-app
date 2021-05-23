@@ -30,7 +30,7 @@ $ npm install
 
 ## Usage
 
-You can use below mentioned scripts to engage with the application. (Here I use **yarn** package manager to present the scripts)
+You can use below mentioned scripts to engage with the application. (Here I use **yarn** package manager to present the available scripts)
 
 ### `yarn start`
 
