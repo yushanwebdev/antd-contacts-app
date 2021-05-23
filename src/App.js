@@ -11,7 +11,6 @@ const { Header, Content, Footer, Sider } = Layout;
 
 const App = ({ contacts, addContact, deleteContact }) => {
   const [showDrawer, setShowDrawer] = useState(false);
-  const [errorInfo, setErrorInfo] = useState({});
   const [collapsed, setCollapsed] = useState(false);
 
   const columns = [
@@ -50,10 +49,6 @@ const App = ({ contacts, addContact, deleteContact }) => {
       ...data,
     });
     setShowDrawer(false);
-  };
-
-  const handleAddFormOnFinishFailed = (errorInfo) => {
-    setErrorInfo(errorInfo);
   };
 
   const onCollapse = (isCollapsed) => {
@@ -100,7 +95,6 @@ const App = ({ contacts, addContact, deleteContact }) => {
                 show={showDrawer}
                 handleOnClose={() => setShowDrawer(false)}
                 handleOnFinish={handleAddFormOnFinish}
-                handleOnFinishFailed={handleAddFormOnFinishFailed}
               />
             </>
           </div>
